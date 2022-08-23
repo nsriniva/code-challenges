@@ -1,0 +1,17 @@
+
+class Node:
+    def __init__(self, val:int, next:Node=None):
+        self.val = val
+        self.next = next
+        
+        
+def add_to_link_list(inp:Node, new_node:int): ->Node:
+    nnode = Node(new_node)
+    nnode.next = inp
+    return nnode
+
+test_vecs = [
+    ((10,15,20,25),(5),(5,10,15,20,25) ),
+]
+
+def check_list(a:Node, b:Node) -> bool:
