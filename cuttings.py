@@ -1,4 +1,7 @@
-def check_cuts(minLength: int, lengths: list) -> bool:
+from typing import Tuple
+
+
+def check_cuts(minLength: int, lengths: Tuple[int, ...]) -> bool:
 
     llen = len(lengths)
     slen = sum(lengths)
