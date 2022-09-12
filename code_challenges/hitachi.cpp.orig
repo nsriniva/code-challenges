@@ -1,0 +1,85 @@
+
+///////////////////////////
+// 1. 
+///////////////////////////
+
+
+// input:   "ABCDEF"
+// output:  "FEDCBA"
+
+void reverse(char *p)
+{
+	char *lp, *lp2;
+  
+	lp = strlen(p);
+  lp2 = lp/2;
+  
+  
+  for (int i=0; i < lp2; i++){
+  	char tmp;
+    
+  	tmp = p[i];
+    p[i] = p[lp-1-i];
+    p[lp-1-i] = tmp;
+  }
+}
+
+
+
+
+
+
+
+///////////////////////////
+// 2. 
+///////////////////////////
+
+// input:    "test", "test2", "tset"
+// output:   "test2" or "tset", "test"
+
+// explanation: remove excess words that are anagrams of other words (contain all the same letters)
+void normalize(set<string> &sset)
+{
+	map<string, vector> str_map;
+  vector<string> ret;
+  
+	for (str : sset) {
+  	string tstr = str;
+  	sort(str.begin(), str.end());
+    if (str_map.find(str) == str_map.end()) { 
+    	vector<string> vs;
+    	str_map[str] = vs;
+    }	
+    str_map[str].push_back(tstr);
+  }
+  for (&vs : str_map){
+  	ret.push_back(vs.second[0]);
+  }
+  return ret;
+}
+
+
+
+
+
+
+
+///////////////////////////
+// 3. 
+///////////////////////////
+
+// "HEADER1   HEADER2   HEADER3   HEADER4\ndata1     data2     data 3    data4"
+
+// Visualization: 
+// HEADER1   HEADER2   HEADER3   HEADER4
+// data1     data2     d  at a 3    data4
+
+void parse_entries(const std::string &dataIn, std::vector<std::string> &headersOut, std::vector<std::string> &dataOut)
+{
+	vector<string> &vec = split(dataIn, '\n');
+  
+	headersOut = split(vec[0],' ');
+  
+  vector<string> 
+  
+}

@@ -1,0 +1,107 @@
+--- hitachi.cpp.orig	2022-03-09 20:34:02.000000000 -0800
++++ hitachi.cpp	2022-03-09 22:28:08.000000000 -0800
+@@ -1,17 +1,22 @@
++#include <string.h>
++#include <string>
++#include <vector>
++#include <set>
++#include <map>
+ 
+ ///////////////////////////
+ // 1. 
+ ///////////////////////////
+ 
+-
++using namespace std;
+ // input:   "ABCDEF"
+ // output:  "FEDCBA"
+ 
+ void reverse(char *p)
+ {
+-	char *lp, *lp2;
++  int lp, lp2;
+   
+-	lp = strlen(p);
++  lp = strlen(p);
+   lp2 = lp/2;
+   
+   
+@@ -25,11 +30,6 @@
+ }
+ 
+ 
+-
+-
+-
+-
+-
+ ///////////////////////////
+ // 2. 
+ ///////////////////////////
+@@ -40,29 +40,24 @@
+ // explanation: remove excess words that are anagrams of other words (contain all the same letters)
+ void normalize(set<string> &sset)
+ {
+-	map<string, vector> str_map;
+-  vector<string> ret;
++  map<string, bool> str_map;
+   
+-	for (str : sset) {
+-  	string tstr = str;
+-  	sort(str.begin(), str.end());
++  for (auto str : sset) {
++    sort(str.begin(), str.end());
+     if (str_map.find(str) == str_map.end()) { 
+-    	vector<string> vs;
+-    	str_map[str] = vs;
+-    }	
+-    str_map[str].push_back(tstr);
+-  }
+-  for (&vs : str_map){
+-  	ret.push_back(vs.second[0]);
++      str_map[str] = true;
++    } else {
++      sset.erase(str);
++    }
+   }
+-  return ret;
+-}
+-
+ 
+ 
++}
+ 
+ 
++using vec_str = vector<string>;
+ 
++vec_str split(const string& data, char c, vec_str &out);
+ 
+ ///////////////////////////
+ // 3. 
+@@ -76,10 +71,23 @@
+ 
+ void parse_entries(const std::string &dataIn, std::vector<std::string> &headersOut, std::vector<std::string> &dataOut)
+ {
+-	vector<string> &vec = split(dataIn, '\n');
++  vec_str vec ;
++  
++  split(dataIn, '\n', vec);
+   
+-	headersOut = split(vec[0],' ');
++  split(vec[0],' ', headersOut);
+   
+-  vector<string> 
++  split(vec[1], ' ', dataOut);
+   
++  auto str2 = new string;
++  *str2 = dataOut[2];
++  
++  for (int i = 3; i<= dataOut.size()-2;){
++    *str2 += ' '+dataOut[i];
++    dataOut.erase(dataOut.begin()+i);
++  }
++  dataOut[2] = *str2;
++	
++  return;
+ }
++
