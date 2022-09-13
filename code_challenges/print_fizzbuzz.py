@@ -1,15 +1,20 @@
+NotDivBy3Or5 = 0
+DivBy3 = 1
+DivBy5 = 10
+DivBy3And5 = 11
 
-pdict = {1:'fizz',10:'buzz',11:'fizzbuzz'}
+pdict = {DivBy3: "fizz", DivBy5: "buzz", DivBy3And5: "fizzbuzz"}
 
-for n in range(1,100):
-    mult = 0
-    if n%3 == 0:
-        mult = 1
-    if n%5 == 0:
-        mult += 10
+for n in range(1, 101):
 
-    if mult != 0:
-        print(f'{pdict[mult]}')
+    divBy = NotDivBy3Or5
+
+    if n % 3 == 0:
+        divBy = DivBy3
+    if n % 5 == 0:
+        divBy += DivBy5
+
+    if divBy != NotDivBy3Or5:
+        print(f"{pdict[divBy]}")
     else:
         print(n)
-
