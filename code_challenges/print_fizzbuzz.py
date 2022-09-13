@@ -1,7 +1,7 @@
 NotDivBy3Or5 = 0
 DivBy3 = 1
 DivBy5 = 10
-DivBy3And5 = 11
+DivBy3And5 = DivBy3 + DivBy5
 
 pdict = {DivBy3: "fizz", DivBy5: "buzz", DivBy3And5: "fizzbuzz"}
 
